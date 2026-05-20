@@ -217,9 +217,23 @@ void outblock(void)
 	}
 }
 
-// expression
+/*
+ * expression - 式の解析
+ *
+ * 修正: IDENTIFIER から始まる式（例: x + 1）にも対応。
+ * 変数名が左辺に来るケースを先頭分岐で処理するよう変更した。
+ */
 void expression(void)
 {
+	/* IDENTIFIER から始まる式に対応（例: x + 1, y * 2） */
+	if (tok.attr == IDENTIFIER)
+	{
+		strcpy(s_table[i].v, tok.charvalue);
+		i++;
+		getsym();
+		return;
+	}
+
 	if (tok.attr == NUMBER)
 	{
 		getsym();
@@ -302,7 +316,7 @@ void expression(void)
 	}
 	else
 	{
-		error("expression must begin with a number");
+		error("expression must begin with a number or identifier");
 	}
 }
 
