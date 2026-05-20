@@ -1,0 +1,14 @@
+# コンパイル生成物
+*.o
+*.out
+parser
+a.out
+
+# エディタ設定
+.vscode/
+*.swp
+*~
+
+# OS生成ファイル
+.DS_Store
+Thumbs.db
