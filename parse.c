@@ -222,6 +222,7 @@ void outblock(void)
  *
  * 修正: IDENTIFIER から始まる式（例: x + 1）にも対応。
  * 変数名が左辺に来るケースを先頭分岐で処理するよう変更した。
+ * issue #1 対応
  */
 void expression(void)
 {
