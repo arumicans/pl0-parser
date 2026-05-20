@@ -74,9 +74,10 @@ void compiler(void)
 		error("At the first, program declaration is required.");
 }
 
+/* エラーメッセージに [ERROR] プレフィックスを付加して視認性を向上 */
 void error(char *s)
 {
-	fprintf(stderr, "%s\n", s);
+	fprintf(stderr, "[ERROR] %s\n", s);
 	exit(1);
 }
 
